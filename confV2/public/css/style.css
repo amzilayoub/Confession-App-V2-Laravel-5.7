@@ -1,0 +1,1165 @@
+/*============ START GENERAL STYLE ============*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    font-family: 'Cairo', sans-serif;
+}
+body{
+    background-color: #f3f3f3;
+    overflow: hidden;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+p{
+    line-height: 1.6;
+}
+
+input[type='text']{
+    padding-right: 10px;
+}
+
+textarea{
+    padding-right: 10px;
+    padding-top: 10px;
+    border: 1px solid #28353b;
+}
+
+.container{
+    width: 1000px;
+    margin: 0 auto
+}
+
+.error{
+    position: fixed;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 999999999999999;
+}
+
+.errorMSG{
+    background-color: #900b1a !important;
+}
+
+.error > div{
+    display: block;
+    animation: errorAnimation 6s ease-in-out forwards;
+}
+.error > div > div{
+    display: inline-block;
+    background-color: #fba100;
+    padding: 5px 20px;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+@keyframes errorAnimation {
+    0% {
+        transform: translateY(100%);
+        opacity: 0
+    } 15%, 93% {
+        transform: translateY(0);
+        opacity: 1
+    } 100%{
+        transform: translateY(100%);
+        opacity: 0
+    }
+}
+
+.isLiked{
+    background-color: #c70039 !important;
+}
+
+.isLiked:hover{
+    border: 1px solid transparent !important;
+    color: white !important;
+}
+
+.addPostComment{
+    height: 50px;
+    border: 2px solid white;
+    cursor: pointer;
+    font-size: 20px;
+    background-color: #f1c40f;
+    color: white;
+    border-radius: 100px;
+    transition: .5s ease-in-out;
+    width: 100px;
+}
+
+.addPostComment:hover{
+    background-color: white;
+    color: #28353b
+}
+
+.commentAnimate{
+    animation: comment 2s ease-in-out;
+}
+
+@keyframes comment {
+    0%{
+        background-color: #f1c40f;
+        color: white;
+    } 100% {
+        background-color: transparent;
+        color: black;
+    }
+}
+
+.search .searchForm form > i{
+    background: #28353b !important;
+    color: white !important;
+    border: 1px solid transparent;
+    transition: all .5s ease-in-out;
+}
+
+.search .searchForm form > i:hover{
+    background: white !important;
+    color: #28353b !important;
+    border: 1px solid #28353b;
+}
+/*============ END GENERAL STYLE ============*/
+/*============ ***************** ============*/
+/*============== START NAVBAR ===============*/
+.sideNavbar{
+    width: 70px;
+    background-color: #28353b;
+    height: 100%;
+    position: fixed;
+    right: 0px;
+    top: 0;
+    transition: all .5s ease-in-out;
+    z-index: 9999999;
+}
+.showNavbar{
+    right: 0px !important;
+}
+.sideNavbar .navbar{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    width: 100%;
+    right: 0;
+}
+.sideNavbar .navbar li {
+    color: darkgray;
+    font-size: 30px;
+    margin: 20px 0;
+    list-style: none;
+    height: 70px;
+    line-height: 70px;
+    transition: all .5s ease-in-out;
+    box-shadow: -0px 0px 0px 0px inset white;
+    position: relative;
+}
+.sideNavbar .navbar .activeLi{
+    background-color: white;
+    color: #28353b;
+}
+.sideNavbar .navbar li:hover:not(.activeLi){
+    color: white;
+    background-color: transparent;
+}
+
+.sideNavbar .addPostBtn{
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+.sideNavbar .addPostBtn{
+    position: absolute;
+    bottom: 10px;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #f1c40f;
+    border-radius: 50%;
+    line-height: 50px;
+    font-size: 40px;
+    right: 50%;
+    transform: translateX(50%);
+    color: #f1c40f;
+    transition: all 1s;
+    cursor: pointer;
+}
+.sideNavbar .addPostBtn:hover{
+    color: white;
+    border: 2px solid white;
+}
+.sideNavbar .brand{
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    margin: 24px 5px 0px;
+    padding-bottom: 10px;
+    position: relative;
+    
+}
+
+.sideNavbar .brand i{
+    position: absolute;
+    bottom: -65%;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    border-bottom: 1px solid;
+    padding-bottom: 8px;
+}
+
+.sideNavbar .brand a {
+    font-size: 22px;
+}
+
+.sideNavbar .showBar{
+    position: absolute;
+    right: 80px;
+    cursor: pointer;
+    display: none;
+    top: 10px;
+}
+
+.sideNavbar .showBar i {
+    font-size: 40px;
+    background-color: #28353b;
+    color: white;
+}
+.sideNavbar .navbar a h6{
+    position:absolute;
+    text-align: center;
+    width: 100px;
+    height: 100%;
+    background-color: #28353b;
+    color: white;
+    transition: all .5s ease-in-out;
+    opacity: 0;
+    left: -160%;
+    line-height: 1.3;
+    height: 35px;
+    line-height: 35px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 100px;
+    cursor: auto;
+    visibility: hidden;
+}
+.sideNavbar .navbar li:hover:not(.activeLi) > h6{
+    left: -150%;
+    opacity: 1;
+    visibility: visible;
+}
+/*============== END NAVBAR =================*/
+/*============ ***************** ============*/
+/*============ START CATEGORY ===============*/
+.categories{
+    position: fixed;
+    background-color: #28353b;
+    width: 200px;
+    height: 100%;
+    z-index: 99;
+    right:-200px;
+    top: 0px;
+    transition: all 1s ease-in;
+}
+.showCategory{
+    right:71px !important;
+}
+.categories .allCategories{
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.categories .allCategories > div {
+    margin: 15px 0px;
+    padding-right: 15px;
+    height: 40px;
+    line-height: 40px;
+    color: darkgray;
+    box-shadow: -0px 0px 0px 0px white inset;
+    width: 100%;
+    transition: all .5s ease-in-out;
+}
+.categories .allCategories > div:hover:not(.activeCat){
+    color: #28353b;
+    background: white
+}
+.categories .allCategories .activeCat{
+    color: #28353b;
+    background: white
+}
+.categories .allCategories > div a {
+    font-size: 20px;
+    display: block;
+    width: 100%;
+}
+.categories .closeCat{
+    position: absolute;
+    left: 5px;
+    top: 0px;
+    cursor: pointer;
+    color: white;
+    font-size: 30px
+}
+
+.categories .closeCat i {
+    padding: 5px;
+}
+/*============== END CATEGORY ===============*/
+/*============ ***************** ============*/
+/*============== START POSTS ===============*/
+.allPosts{
+    margin-right: 80px;
+    margin-top: 30px;
+    width: calc(100% - 90px);
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 40px;
+    justify-items:stretch;
+    align-items: stretch;
+}
+.allPosts .post,
+.fullPost .theFull .post{
+    border: 1px solid green;
+    position: relative;
+    background-color: white;
+    margin-bottom: 10px !important;
+}
+.allPosts .post .detailsPost h1,
+.fullPost .theFull .post .detailsPost h1{
+    width: 45%;
+    padding: 0 10px;
+    height: 30px;
+    font-size: 20px;
+    line-height: 30px;
+    margin-bottom: 10px;
+    margin-left: 10%;
+    border: 0.5px solid;
+    background-color: green;
+    position: absolute;
+    top: -15px;
+    border-radius: 15px;
+    right: 50%;
+    transform: translate(50%);
+    text-align: center;
+    color: white;
+}
+.allPosts .post .textPost,
+.fullPost .theFull .post .textPost{
+    text-align: center;
+    margin: 20px 5px 50px;
+    cursor: pointer;
+    padding: 10px;
+}
+.allPosts .post .textPost .infoPost,
+.fullPost .post .textPost .infoPost{
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+.allPosts .post .textPost .infoPost > span,
+.fullPost .theFull .post .textPost .infoPost > span{
+    background-color: #f4f4f4;
+    padding: 5px 20px;
+    font-size: 11px;
+}
+.allPosts .post .textPost .infoPost > span i,
+.fullPost .theFull .post .textPost .infoPost > span i{
+    border-right: 1px solid;
+    padding-right: 7px;
+    letter-spacing: 2px;
+}
+.allPosts .post .textPost .infoPost > span span,
+.fullPost .theFull .post .textPost .infoPost > span span{
+    padding-left: 7px;
+}
+.allPosts .post .btnPost,
+.fullPost .theFull .post .btnPost{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+.allPosts .post .btnPost i,
+.fullPost .theFull .post .btnPost i{
+    margin: 10px 7%;
+    width: 45px;
+    height: 45px;
+    background-color: #28353b;
+    border-radius: 50%;
+    line-height: 45px;
+    cursor: pointer;
+    color: white;
+    transition: all 0.5s ease-in-out;
+    border: 1px solid transparent;
+}
+
+.allPosts .post .btnPost i:hover,
+.fullPost .theFull .post .btnPost i:hover{
+    color: #28353b;
+    background-color: white;
+    border: 1px solid #28353b;
+}
+/*================ END POSTS ================*/
+/*============ ***************** ============*/
+/*============== START FILTER ===============*/
+.search{
+    margin-bottom: 10px;
+    margin-right: 70px;
+    width: calc(100% - 70px)
+}
+.search .searchForm{
+    text-align: center;
+    margin: 10px auto;
+    font-size: 30px;
+    position: relative;
+    width: 300px;
+}
+.search .searchForm form{
+    transition: all 1s;
+    display: inline-block;
+}
+.search .searchForm form > i{
+    background-color: #28353b;
+    height: 50px;
+    line-height: 50px;
+    width: 50px;
+    cursor: pointer;
+    color: white;
+    border-radius: 50%;
+    transition: all 1s;
+    float: left;
+}
+.search .searchForm input[type="text"]{
+    float: right;
+    height: 50px;
+    width: 0px;
+    opacity: 0;
+    transition: all 1s;
+    font-size: 20px;
+    border-left: none;
+    
+}
+.search .searchForm input[type="submit"]{
+    display: none;
+}
+/* -- START BUTTON SEARCH CLICKED STYLE -- */
+.searchIconClicked{
+    border-radius: 0% !important;
+}
+.submitShow{
+    opacity: 1 !important;
+    width: 200px !important;
+    border: 1px solid;
+}
+/* -- END BUTTON SEARCH CLICKED STYLE -- */
+/*============== END FILTER ===============*/
+/*============== START ADD POST ===============*/
+.addPost:after{
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: black;
+    top: 0;
+    opacity: 0.8;
+    z-index: 0
+}
+.addPost{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    z-index: 99999999;
+    display: none;
+}
+.addPost .form{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-60%);
+    padding: 15px;
+    z-index: 99999999;
+    background-color: #28353b;
+    border-radius: 20px;
+    border: 1px solid white;
+    transition: all 1s;
+}
+.addPost .form .selectCategory{
+    margin-bottom: 10px;
+}
+.addPost .form .selectCategory label{
+    font-style: italic;
+    font-size: 20px;
+    margin-left: 10px;
+    color: white;
+}
+.addPost .form .selectCategory select{
+    width: 200px;
+    height: 40px;
+}
+.addPost .form .textConf textarea{
+    resize: none;
+    width: 700px;
+    height: 400px;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+.addPost .form .la-close{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    font-size: 25px;
+    color: white;
+    cursor: pointer;
+}
+/* -- SHOW ADD POST CLASS -- */
+.showAddPost{
+    transform: translate(-50%,-50%) !important;
+}
+/* -- END ADD POST CLASS -- */
+/*============== END ADD POST ===============*/
+/*============== START FULL POST ===============*/
+.fullPost{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #f3f3f3;
+    top: 0;
+    right: 0;
+    z-index: 999999999;
+    display: none;
+    overflow-y:scroll;
+}
+.fullPost .la-close,
+.fullPost .la-home{
+    font-size: 30px;
+    margin-right: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    padding: 5px;
+    background: #28353b !important;
+    color: white !important;
+    border: 1px solid transparent;
+    transition: all .5s ease-in-out;
+}
+
+.fullPost .la-close:hover,
+.fullPost .la-home:hover{
+    background: white !important;
+    color: #28353b !important;
+    border: 1px solid #28353b;
+}
+
+.fullPost .theFull .post{
+    float: right;
+    width: 50%;
+}
+.fullPost .post{
+    margin: 20px 10px 10px;
+}
+.fullPost .post .detailsPost h1{
+    width: 230px;
+}
+.fullPost .theComments{
+    float: left;
+    width: 48%;
+}
+.fullPost .theComments .addComment{
+    width: 100%;
+    margin-top: 20px;
+}
+.fullPost .theComments .addComment textarea{
+    resize: none;
+    width: 80%;
+    margin-left: 10px;
+    height: 130px;
+    font-size: 18px;
+    border: 0.5px solid
+}
+.fullPost .theComments .addComment input{
+    width: 15%;
+    float: left;
+    margin-left: 10px;
+    
+}
+
+.fullPost .theComments .addComment input:hover{
+    border: 2px solid #28353b;
+}
+.fullPost .theComments .allComment{
+    width: 99%;
+    border: 1px solid darkgray;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 10px;
+}
+.fullPost .theComments .allComment h6{
+    margin: 10px;
+    border: 1px solid darkgray;
+    font-size: 20px;
+    border-radius: 100px;
+}
+/*============== END FULL POST ===============*/
+
+/*============ START CONTACT US Aside ============*/
+/* START SIDE BAR DEFAULT STYLE */
+.sideBarStyle{
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100%;
+    background-color: white;
+    text-align: center;
+    font-size: 30px;
+    transition: all 1s ease-in-out;
+    z-index: 99999999;
+    border-left: 1px solid darkgray;
+}
+.sideBarStyle .back{
+    padding: 10px 0;
+    text-align: left;
+    margin-left: 20px;
+    height: auto;
+}
+.sideBarStyle .back i{
+    cursor: pointer;
+    background-color: #25252C;
+    color: white;
+    padding: 5px;
+    margin-bottom: 0px;
+    transition: all 0.5s ease-in-out;
+    border: 1px solid #25252C;
+}
+.sideBarStyle .back i:hover{
+    background-color: white;
+    color: #25252C;
+}
+.showMySideBar{
+    right: 0 !important;
+}
+
+.contactAside{
+    width: 100%;
+    height: 100%;
+    right: -100%;
+    background-color: white
+}
+.contactAside form{
+    width: 80%;
+    margin: 0 auto;
+    padding: 10px
+}
+
+.contactAside form > div{
+    margin-bottom: 15px;
+}
+
+.contactAside form .addPostComment:hover{
+    border: 2px solid #28353b;
+}
+
+.contactAside form > div:nth-child(1){
+    margin-right: 2%
+}
+.contactAside form > div:nth-child(1),
+.contactAside form > div:nth-child(2){
+    width: 49%;
+    float: left;
+}
+.contactAside form input[type="text"],
+.contactAside form input[type="email"],
+.contactAside form textarea{
+    width: 100%;
+    padding: 8px;
+}
+.contactAside form input[name="subject"]{
+    margin-bottom: 6px;
+}
+.contactAside form textarea{
+    resize: none;
+    height: 30vh;
+}
+/*============ END CONTACT US Aside ============*/
+
+/*============ START LOADING ============*/
+.privacy * {
+    color:  #28353b;
+}
+.privacy{
+    text-align: center;
+    margin-top: 80px;
+}
+
+.privacy h1 span{
+    border: 2px solid;
+    padding: 0px 50px;
+    display: inline-block;
+}
+
+.privacy p{
+    margin-top: 30px;
+    line-height: 2;
+    text-align: justify;
+    font-weight: bold;
+}
+
+.privacy p span {
+    color: white;
+    background-color: #28353b;
+}
+/*============ END PRIVACY ============*/
+
+/*============ END PRIVACY ============*/
+.loader{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 99999999999999;
+}
+.lds-ripple {
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.lds-ripple div {
+  position: absolute;
+  border: 4px solid #28353b;
+  opacity: 1;
+  border-radius: 50%;
+  animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+.lds-ripple div:nth-child(2) {
+  animation-delay: -0.5s;
+}
+@keyframes lds-ripple {
+  0% {
+    top: 28px;
+    left: 28px;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    top: -1px;
+    left: -1px;
+    width: 58px;
+    height: 58px;
+    opacity: 0;
+  }
+}
+
+/*============ END LOADING ============*/
+
+/*============ START SHARE ============*/
+.sharePage{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 99999999;
+    top: 0;
+    left: 0;
+    display: none
+}
+
+.sharePage:after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: darkgray;
+    opacity: 0.6;
+}
+
+.sharePage > div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 200px;
+    text-align: center;
+    background: white;
+    z-index: 9999;
+    padding:10px 0;
+    border: 2px solid #28353b
+}
+
+.sharePage > div a {
+    display: block;
+    color: #28353b;
+    font-size: 60px;
+    border: 2px solid;
+    margin: 5px 0;
+    width: 90px;
+    height: 90px;
+    line-height: 90px;
+    margin: 10px auto;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.6s ease-in-out;
+}
+
+.sharePage > div a:hover{
+    background-color: #28353b;
+    color: white;
+}
+
+/*============ END SHARE ============*/
+
+/*============ ***************** ============*/
+/*
++---------------------------------------------+
+|
+|==> THIS NEXT PART FOR RESPONSIVE DESIGN
+|==> THERE'S SOME PARAMETERS FOR MOZILLA
+|
++---------------------------------------------+
+*/
+/* START FOR DEVICES WIDTH = 1360px */
+@media(max-width:1360px){
+
+    .allPosts .post{
+        height: 230px;
+    }
+}
+
+/* START FOR DEVICES WIDTH = 1360px */
+
+/* START FOR DEVICES WIDTH = 980px */
+@media(max-width:1100px){
+
+    .container{
+        width: 700px;
+    }
+/*================ START POSTS ================*/
+    .allPosts{
+        grid-template-columns: repeat(3,1fr);
+    }
+/*================ END POSTS ================*/
+
+/*============== START ADD POST ===============*/
+    .addPost .form .textConf textarea{
+        width: 600px;
+        height: 300px;
+    }
+/*============== END ADD POST ===============*/
+/*============== START FULL POST ===============*/
+    .showFullPost{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .fullPost .theComments{
+        width: auto;
+        margin-right: calc(100% - 99%);
+        float: none;
+    }
+    .fullPost .theFull .post{
+        float: none;
+        width: auto;
+    }
+/*============== END FULL POST ===============*/
+}
+/* END FOR DEVICES WIDTH = 980px */
+
+/* START FOR DEVICES WIDTH = 990px */
+@media(max-width:990px){
+    .allPosts .post{
+        height: 280px;
+    }
+}
+/* END FOR DEVICES WIDTH = 990px */
+
+/* START FOR DEVICES WIDTH = 780px */
+@media(max-width:830px){
+/*================ START POSTS ================*/
+    .allPosts{
+        grid-template-columns: repeat(2,1fr);
+    }
+    .allPosts .post{
+        height: auto;
+    }
+/*================ END POSTS ================*/
+
+/*============== START ADD POST ===============*/
+    .showAddPost{
+        transform: translate(0%,-50%) !important;
+        left: 10px !important;
+    }
+    .addPost .form .textConf textarea{
+        width: 600px;
+        height: 200px;
+    }
+    .addPost .form .sendIt input{
+        width: 110px;
+    }
+    .addPost .form{
+        left: 10px;
+        transform: translate(0%,-60%);
+    }
+/*============== END ADD POST ===============*/
+}
+/* END FOR DEVICES WIDTH = 780px */
+
+@media(max-width: 720px){
+    .container{
+        width: calc(100% - 40px);
+    }
+}
+
+/* START FOR DEVICES WIDTH = 670px */
+@media(max-width:670px){
+/*============== START ADD POST ===============*/
+    .addPost .form .textConf textarea{
+        width: 500px;
+    }
+/*============== END ADD POST ===============*/
+}
+/* END FOR DEVICES WIDTH = 670px */
+
+/* START FOR DEVICES WIDTH = 550px */
+@media(max-width:590px){
+/*============== START ADD POST ===============*/
+    .allPosts{
+        grid-template-columns: 1fr;
+    }
+    .addPost .form .textConf textarea{
+        width: 400px;
+        height: 400px;
+    }
+
+    .fullPost .theComments .addComment form{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .fullPost .theComments .addComment textarea{
+        width: calc(100% - 4px);
+    }
+
+    .fullPost .theComments .addComment input{
+        margin-top: 10px;
+        width: 160px;
+    }
+
+    .fullPost .theComments .allComment h6{
+        font-size: 16px;
+    }
+/*============== END ADD POST ===============*/
+}
+/* END FOR DEVICES WIDTH = 550px */
+
+/* START FOR DEVICES WIDTH = 490px */
+@media(max-width:490px){
+/*================ START POSTS ================*/
+    .allPosts{
+        grid-template-columns: repeat(1,1fr);
+    }
+/*================ END POSTS ================*/
+/*============== START ADD POST ===============*/
+    .showAddPost{
+        left: 0px ! important;
+    }
+    .addPost .form{
+        width: calc(100% - 5px);
+        margin: 0 2.5px;
+    }
+    .addPost .form .textConf textarea{
+        width: 100%;
+        height: 400px
+    }
+    .addPost .form .sendIt input{
+        width: 100px;
+        height: 40px;
+    }
+/*============== END ADD POST ===============*/
+}
+/* END FOR DEVICES WIDTH = 490px */
+
+/* END FOR DEVICES WIDTH = 330px */
+@media(max-width:330px){
+    .allPosts .post .btnPost i{
+        margin: 10px 3%
+    }
+}
+/* END FOR DEVICES WIDTH = 330px */
+
+/* START FOR DEVICES WIDTH = 425px */
+@media(max-width:560px){
+    
+/*============== START NAVBAR =================*/
+    .sideNavbar{
+        right: -70px;
+    }
+    .sideNavbar .showBar{
+        display: block;
+    }
+/*============== END NAVBAR =================*/
+/*============ START CATEGORY ===============*/
+    .categories{
+        right: -200px;
+    }
+/*============ END CATEGORY ===============*/
+/*============ START POSTS ===============*/
+    .allPosts{
+        width: calc(100% - 40px);
+        padding: 0 16px;
+        margin-right: 40px;
+        margin-left: 0px;
+    }
+/*============ END POSTS ===============*/
+/*============ START SEARCH ===============*/
+    .search{
+        width: calc(100% - 40px);
+        margin-right: 40px;
+    }
+/*============ END SEARCH ===============*/
+/*============ START SEARCH ===============*/
+    .search .searchForm form > i{
+        height: 40px;
+        line-height: 40px;
+        width: 40px;
+    }
+    .search .searchForm input[type="text"]{
+        height: 40px;
+    }
+    .submitShow{
+        width: 140px !important;
+        font-size: 16px
+    }
+/*============ END SEARCH ===============*/
+}
+
+/* END FOR DEVICES WIDTH = 425px */
+
+
+@media(max-height: 700px){
+
+    .contactAside form textarea{
+        height: 25vh;
+    }
+
+}
+
+/* START FOR DEVICES HEIGHT = 570px */
+@media(max-height:570px){
+/*============== START NAVBAR =================*/
+    .sideNavbar{
+        right: -140px;
+    }
+    .sideNavbar .showBar{
+        display: block;
+    }
+    .sideNavbar{
+        width: 140px;
+    }
+    .sideNavbar .brand{
+        position: absolute;
+        right: 50%;
+        transform: translateX(50%)
+    }
+    .sideNavbar .navbar{
+        width: calc(100% - 5px);
+        right: 2.5px;
+    }
+    .sideNavbar .navbar .activeLi{
+        box-shadow: -140px 0px 0px 0px inset white;
+    }
+    .sideNavbar .navbar ul a{
+        display: inline-block;
+        width: 48%;
+    }
+    .sideNavbar .navbar ul a li{
+        border: 1px solid;
+        margin-bottom: 0px
+    }
+    .sideNavbar .navbar ul a h6{
+        display: none;
+    }
+    .sideNavbar .showBar{
+        right: 150px;
+    }
+/*============== END NAVBAR =================*/
+/*============ START CATEGORY ===============*/
+    .categories{
+        right: -200px;
+    }
+    .categories .allCategories > div{
+        margin: 0;
+    }
+    .showCategory{
+        right: 141px !important;
+    }
+/*============ END CATEGORY ===============*/
+/*============ START POSTS ===============*/
+    .allPosts{
+        width: calc(100% - 40px);
+        padding: 0 16px;
+        margin-right: 40px;
+        margin-left: 0px;
+    }
+/*============ END POSTS ===============*/
+/*============ START SEARCH ===============*/
+    .search{
+        width: calc(100% - 40px);
+        margin-right: 40px;
+    }
+/*============ END SEARCH ===============*/
+    .contactAside form > div{
+        margin-bottom: 2px !important
+    }
+    .contactAside form input{
+        padding:2px !important;
+    }
+}
+/* END FOR DEVICES HEIGHT = 570px */
+/*
++---------------------------------------------+
+|
+|==> THIS STYLE FOR MOZILLA
+|
++---------------------------------------------+
+*/
+@-moz-document url-prefix() {
+    @media(max-width:490px){
+    /*============== START ADD POST ===============*/
+        .addPost .form{
+            margin: -7.5px;
+        }
+        .addPost .form .textConf textarea{
+            width: calc(100% - 10px);
+            height: 400px
+        }
+    /*============== END ADD POST ===============*/
+    }
+    /* END FOR DEVICES WIDTH = 490px */
+    /* START FOR DEVICES WIDTH = 425px */
+    @media(max-width:425px){
+        /*============ START SEARCH ===============*/
+        .search .searchForm form > i{
+            transform: translateY(-3px);
+        }
+        /*============ END SEARCH ===============*/
+        
+    }
+    /* END FOR DEVICES WIDTH = 425px */
+    
+}
