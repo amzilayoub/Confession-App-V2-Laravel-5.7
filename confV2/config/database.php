@@ -54,11 +54,11 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', 'sql101.hostkda.com'),
+            'host' => env('DB_HOST', ''),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'hkda_23446369_confV2'),
-            'username' => env('DB_USERNAME', 'hkda_23446369'),
-            'password' => env('DB_PASSWORD', 'RANI9ASH'),
+            'database' => env('DB_DATABASE', ''),
+            'username' => env('DB_USERNAME', ''),
+            'password' => env('DB_PASSWORD', ''),
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix' => '',
